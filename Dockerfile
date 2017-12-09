@@ -6,7 +6,7 @@ RUN apk --no-cache --update add \
   perl \
   ;
 
-RUN exiftool_version="10.65" \
+RUN exiftool_version="10.66" \
   ; apk --no-cache --update add --virtual=build-time-only \
   curl \
   tar \
