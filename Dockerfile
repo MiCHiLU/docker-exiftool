@@ -1,7 +1,5 @@
 FROM alpine:edge
 
-WORKDIR /root
-
 RUN apk --no-cache --update add \
   perl \
   ;
@@ -25,3 +23,5 @@ RUN apk --no-cache --update add --virtual=build-deps \
   && apk del build-deps
 
 ENTRYPOINT ["exiftool"]
+
+WORKDIR /root
