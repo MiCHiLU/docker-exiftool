@@ -5,7 +5,7 @@ RUN apk --no-cache --update add \
   ;
 
 ARG \
-  exiftool=10.68
+  exiftool=10.69
 
 RUN apk --no-cache --update add --virtual=build-deps \
   curl \
