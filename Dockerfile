@@ -6,14 +6,16 @@ RUN apk --no-cache --update add \
   perl \
   ;
 
-RUN exiftool_version="10.68" \
-  ; apk --no-cache --update add --virtual=build-time-only \
+ARG \
+  exiftool=10.68
+
+RUN apk --no-cache --update add --virtual=build-time-only \
   curl \
   tar \
   make \
   && mkdir src \
   && (cd src \
-    && curl -s https://sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-${exiftool_version}.tar.gz \
+    && curl -s https://sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-${exiftool}.tar.gz \
     | tar xzf - --strip-components 1 \
     && perl Makefile.PL \
     && make test \
