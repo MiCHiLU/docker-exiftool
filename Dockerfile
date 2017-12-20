@@ -9,7 +9,7 @@ RUN apk --no-cache --update add \
 ARG \
   exiftool=10.68
 
-RUN apk --no-cache --update add --virtual=build-time-only \
+RUN apk --no-cache --update add --virtual=build-deps \
   curl \
   tar \
   make \
@@ -22,6 +22,6 @@ RUN apk --no-cache --update add --virtual=build-time-only \
     && make install \
   ) \
   && rm -rf src \
-  && apk del build-time-only
+  && apk del build-deps
 
 ENTRYPOINT ["exiftool"]
